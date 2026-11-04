@@ -63,3 +63,8 @@ test('mobile UX incluye menú hamburguesa accesible, CTA seguro y targets tácti
   assert.match(styles, /env\(safe-area-inset-bottom\)/);
   assert.match(styles, /@media\(max-width:380px\)[\s\S]*?\.service-grid\{grid-template-columns:1fr;gap:12px\}/);
 });
+
+test('el enlace Volver arriba se conserva en desktop y se oculta en mobile', () => {
+  assert.ok(page.includes('footer-back-to-top'));
+  assert.match(styles, /@media\(max-width:680px\)\{\.footer-back-to-top\{display:none\}\}/);
+});
