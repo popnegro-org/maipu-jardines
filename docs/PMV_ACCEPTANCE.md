@@ -21,19 +21,19 @@ Captar consultas calificadas para corte de pasto y mantenimiento de jardines en 
 - Navegación accesible, estados de foco y soporte de movimiento reducido.
 
 ## Fuera de alcance hasta contar con datos reales
-- Número de WhatsApp, dirección comercial, horarios, precios y SLA.
+- Dirección comercial, horarios, precios y SLA.
 - Testimonios, reseñas, años de experiencia, certificaciones y fotografías de trabajos no suministradas.
 - Publicación de LocalBusiness con dirección/geo/horarios no verificados.
 - CRM, pagos, agenda online y automatizaciones.
 - Promesas de cobertura o capacidad operativa no confirmadas.
 
 ## Bloqueantes para lanzamiento público
-1. Confirmar titularidad/registro del dominio y configurar `NEXT_PUBLIC_SITE_URL`.
-2. Confirmar número real de WhatsApp Business y configurar `NEXT_PUBLIC_WHATSAPP_NUMBER` (formato internacional, solo dígitos).
+1. Verificar que el alias de Vercel permanezca conectado al proyecto y que el deployment aprobado esté publicado.
+2. Probar el número de WhatsApp informado desde un dispositivo móvil y confirmar que pertenece al canal comercial.
 3. Confirmar servicios efectivamente disponibles, radio de atención y proceso de asignación de colaboradores.
 4. Las imágenes de Pexels son ilustrativas y están identificadas como tales; reemplazarlas por fotografías propias cuando estén disponibles.
 5. Probar en móvil y escritorio el flujo real de WhatsApp.
-6. Analítica GA4 fuera de alcance por decisión comercial actual; no instalar etiquetas ni enviar eventos.
+6. GA4 excluido por decisión del titular; no instalar etiquetas ni enviar eventos.
 7. Validar SEO técnico, accesibilidad, rendimiento y contenido antes de producción.
 
 ## Criterios técnicos
@@ -42,7 +42,7 @@ Captar consultas calificadas para corte de pasto y mantenimiento de jardines en 
 - `npm test` aprobado.
 - `npm run build` aprobado.
 - Landing sin overflow horizontal en 360 px, 390 px, 768 px y escritorio.
-- CTA visible y accesible; cuando falta el teléfono, no inventar un destinatario: el CTA dirige al bloque de contacto.
+- CTA visible y accesible; usa el número confirmado `5492612456584` y un mensaje inicial editable con localidad.
 - Canonical y sitemap usan exclusivamente el dominio configurado; si falta, se omiten para evitar indexar un dominio candidato.
 - No hay datos de negocio, reseñas, fotos o afirmaciones inventadas.
 
