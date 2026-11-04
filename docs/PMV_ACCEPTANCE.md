@@ -8,7 +8,7 @@ Captar consultas calificadas para corte de pasto y mantenimiento de jardines en 
 - Operación: mixta, con capacidad propia y colaboradores.
 - Clientes: residenciales y comerciales.
 - Conversión primaria: WhatsApp Business.
-- Cobertura inicial: Maipú como zona inicial; las localidades cercanas se confirman caso por caso antes de ofrecer el servicio.
+- Cobertura confirmada para el PMV: Ciudad de Maipú, Luzuriaga, Coquimbito, General Gutiérrez, Cruz de Piedra, Russell, Lunlunta, General Ortega, Rodeo del Medio, Fray Luis Beltrán, San Roque y Barrancas. La disponibilidad puntual se confirma según agenda y alcance.
 - Infraestructura: priorizar planes gratuitos; el dominio puede tener costo de registro.
 
 ## Incluido
@@ -31,9 +31,9 @@ Captar consultas calificadas para corte de pasto y mantenimiento de jardines en 
 1. Confirmar titularidad/registro del dominio y configurar `NEXT_PUBLIC_SITE_URL`.
 2. Confirmar número real de WhatsApp Business y configurar `NEXT_PUBLIC_WHATSAPP_NUMBER` (formato internacional, solo dígitos).
 3. Confirmar servicios efectivamente disponibles, radio de atención y proceso de asignación de colaboradores.
-4. Incorporar fotografías propias autorizadas y datos comerciales verificables.
+4. Las imágenes de Pexels son ilustrativas y están identificadas como tales; reemplazarlas por fotografías propias cuando estén disponibles.
 5. Probar en móvil y escritorio el flujo real de WhatsApp.
-6. Configurar GA4 únicamente con un ID autorizado y verificar eventos de conversión.
+6. Analítica GA4 fuera de alcance por decisión comercial actual; no instalar etiquetas ni enviar eventos.
 7. Validar SEO técnico, accesibilidad, rendimiento y contenido antes de producción.
 
 ## Criterios técnicos
