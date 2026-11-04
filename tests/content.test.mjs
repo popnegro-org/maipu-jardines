@@ -9,6 +9,7 @@ const layout = await readFile(new URL('../src/app/layout.tsx', import.meta.url),
 const robots = await readFile(new URL('../src/app/robots.ts', import.meta.url), 'utf8');
 const sitemap = await readFile(new URL('../src/app/sitemap.ts', import.meta.url), 'utf8');
 const envExample = await readFile(new URL('../.env.example', import.meta.url), 'utf8');
+const styles = await readFile(new URL('../src/app/globals.css', import.meta.url), 'utf8');
 
 test('landing comunica servicio, ubicación y segmentos aprobados', () => {
   for (const phrase of ['Corte de pasto', 'Maipú', 'comercios y empresas', 'mantenimiento periódico']) {
@@ -44,4 +45,14 @@ test('las imágenes de Pexels se identifican como ilustrativas', () => {
 test('GA4 permanece fuera del alcance', () => {
   assert.match(acceptance, /GA4 fuera de alcance|GA4 excluido/);
   assert.doesNotMatch(layout, /gtag|googletagmanager/i);
+});
+
+
+test('mobile UX incluye navegación accesible, CTA seguro y targets táctiles', () => {
+  assert.match(page, /className="mobile-nav"/);
+  assert.match(page, /aria-label="Navegación móvil"/);
+  assert.match(styles, /\.mobile-nav a\{[^}]*min-height:36px/);
+  assert.match(styles, /\.mobile-cta \.button\{min-height:50px\}/);
+  assert.match(styles, /env\(safe-area-inset-bottom\)/);
+  assert.match(styles, /@media\(max-width:380px\)[\s\S]*?\.service-grid\{grid-template-columns:1fr;gap:12px\}/);
 });
