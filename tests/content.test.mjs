@@ -16,19 +16,32 @@ test('landing comunica servicio, ubicación y segmentos aprobados', () => {
   }
 });
 
-test('la conversión WhatsApp no inventa un teléfono', () => {
-  assert.match(whatsapp, /NEXT_PUBLIC_WHATSAPP_NUMBER/);
-  assert.match(acceptance, /No completar con un número de ejemplo|No inventar/i);
+test('la conversión usa el WhatsApp confirmado y un mensaje contextual', () => {
+  assert.match(whatsapp, /5492612456584/);
+  assert.match(whatsapp, /wa\.me/);
+  assert.match(whatsapp, /\[mi localidad\]/);
+  assert.match(envExample, /NEXT_PUBLIC_WHATSAPP_NUMBER=5492612456584/);
 });
 
-test('la documentación identifica bloqueantes previos al lanzamiento', () => {
-  assert.match(acceptance, /Bloqueantes para lanzamiento público/);
-  assert.match(acceptance, /WhatsApp Business/);
+test('la cobertura refleja las doce localidades aprobadas', () => {
+  for (const place of ['Ciudad de Maipú', 'Luzuriaga', 'Coquimbito', 'General Gutiérrez', 'Cruz de Piedra', 'Russell', 'Lunlunta', 'General Ortega', 'Rodeo del Medio', 'Fray Luis Beltrán', 'San Roque', 'Barrancas']) {
+    assert.ok(page.includes(place), `Falta cobertura: ${place}`);
+  }
 });
 
-test('no publica canonical ni sitemap con un dominio candidato no confirmado', () => {
-  assert.match(layout, /siteUrl \? \{ alternates: \{ canonical: '\/' \} \} : \{\}/);
-  assert.match(robots, /siteUrl \? \{ sitemap:/);
-  assert.match(sitemap, /if \(!siteUrl\) return \[\]/);
-  assert.match(envExample, /^NEXT_PUBLIC_SITE_URL=$/m);
+test('la URL canónica usa el dominio de Vercel confirmado', () => {
+  assert.match(layout, /https:\/\/maipu-jardines\.vercel\.app/);
+  assert.match(robots, /https:\/\/maipu-jardines\.vercel\.app/);
+  assert.match(sitemap, /https:\/\/maipu-jardines\.vercel\.app/);
+  assert.match(envExample, /NEXT_PUBLIC_SITE_URL=https:\/\/maipu-jardines\.vercel\.app/);
+});
+
+test('las imágenes de Pexels se identifican como ilustrativas', () => {
+  assert.match(page, /Imagen ilustrativa/);
+  assert.match(acceptance, /Pexels/);
+});
+
+test('GA4 permanece fuera del alcance', () => {
+  assert.match(acceptance, /GA4 excluido/);
+  assert.doesNotMatch(layout, /gtag|googletagmanager/i);
 });
