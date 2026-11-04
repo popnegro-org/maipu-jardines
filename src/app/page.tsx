@@ -185,7 +185,7 @@ export default function HomePage() {
         <section className="contact section-pad" id="contacto"><div className="container contact-inner"><span className="eyebrow">HABLEMOS DE TU JARDÍN</span><h2>El primer paso es <em>simple.</em></h2><p>Contanos qué necesitás y dónde estás. Te ayudamos a encontrar la mejor opción para tu espacio.</p><WhatsAppCta className="button-light" /><small>La disponibilidad y el presupuesto se confirman según zona y características del trabajo.</small></div></section>
       </main>
 
-      <footer className="site-footer"><div className="container footer-inner"><a className="brand footer-brand" href="#inicio"><span className="brand-mark"><Leaf size={21} /></span><span>maipú<span className="brand-light"> jardines</span></span></a><span>Corte de pasto y mantenimiento de jardines · Maipú, Mendoza</span><a href="#inicio">Volver arriba ↑</a></div><div className="container footer-legal">© {new Date().getFullYear()} Maipú Jardines. Todos los derechos reservados.</div></footer>
+      <footer className="site-footer"><div className="container footer-inner"><a className="brand footer-brand" href="#inicio"><span className="brand-mark"><Leaf size={21} /></span><span>maipú<span className="brand-light"> jardines</span></span></a><span>Corte de pasto y mantenimiento de jardines · Maipú, Mendoza</span><a className="footer-back-to-top" href="#inicio">Volver arriba ↑</a></div><div className="container footer-legal">© {new Date().getFullYear()} Maipú Jardines. Todos los derechos reservados.</div></footer>
       <div className="mobile-cta"><WhatsAppCta /></div>
     </>
   );
