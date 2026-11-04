@@ -42,7 +42,7 @@ Captar consultas calificadas para corte de pasto y mantenimiento de jardines en 
 - `npm test` aprobado.
 - `npm run build` aprobado.
 - Landing sin overflow horizontal en 360 px, 390 px, 430 px, 680 px, 681 px, 768 px y escritorio.
-- En móvil hay navegación principal visible en tres opciones, sin desplazamiento horizontal, con etiquetas legibles, targets táctiles de 48 px, foco visible y enlaces directos a Servicios, Cómo trabajamos y Cobertura; CTA fijo con safe-area.
+- En móvil hay un menú hamburguesa con estado expandido anunciado (`aria-expanded`), relación `aria-controls`, etiqueta accesible dinámica y área táctil mínima de 48×48 px. Al abrir muestra Servicios, Cómo trabajamos y Cobertura en una lista vertical; cada enlace cierra el menú, Escape lo cierra y el foco visible permanece perceptible. CTA fijo con safe-area.
 - En anchos de hasta 380 px, las tarjetas de servicios pasan a una columna para preservar legibilidad.
 - La fotografía principal en móvil elimina elementos decorativos superpuestos y conserva la identificación de imagen ilustrativa.
 - CTA visible y accesible; usa el número confirmado `5492612456584` y un mensaje inicial editable con localidad.
