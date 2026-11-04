@@ -1,7 +1,7 @@
 import { MessageCircle } from 'lucide-react';
 
 const message = encodeURIComponent(
-  'Hola, quiero solicitar un presupuesto para corte de pasto o mantenimiento de jardín en Maipú y alrededores.',
+  'Hola, quiero solicitar un presupuesto para corte de pasto o mantenimiento de jardín. Estoy en [mi localidad] y quisiera coordinar una visita.',
 );
 
 export function WhatsAppCta({ className = '' }: { className?: string }) {
