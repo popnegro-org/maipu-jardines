@@ -24,3 +24,77 @@
 .photo-tile figcaption span{margin-top:4px;font-size:9px;color:#e0e9dd}
 @media(max-width:900px){.hero-art{height:360px}}
 @media(max-width:680px){.hero-art{height:280px;margin:0;border-radius:13px}.photo-showcase-grid{grid-template-columns:1fr;gap:10px}.photo-tile{height:220px}.photo-tile-wide{height:230px}}
+
+
+/* Mobile UX refinement: clearer navigation, calmer hero and safer touch targets. */
+.mobile-nav{display:none}
+.service-card>a{width:40px;height:40px;display:grid;place-items:center;border-radius:50%;background:#e4ecd8;color:#527a3e}
+.service-card>a:focus-visible,.mobile-nav a:focus-visible,.text-link:focus-visible,.button:focus-visible{outline:3px solid #91b65c;outline-offset:3px}
+@media(max-width:680px){
+  html{scroll-padding-top:112px;scroll-padding-bottom:84px}
+  .site-header{height:auto;min-height:0}
+  .header-inner{min-height:68px;flex-wrap:wrap;gap:0}
+  .mobile-nav{display:flex;align-items:center;gap:8px;width:100%;min-width:0;overflow-x:auto;padding:0 0 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .mobile-nav::-webkit-scrollbar{display:none}
+  .mobile-nav a{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:0 13px;border:1px solid #dfe7d7;border-radius:999px;background:#f3f6ed;color:#36563b;font-size:11px;font-weight:700;white-space:nowrap}
+  .hero-art{height:250px;margin:0;border-radius:13px;box-shadow:0 16px 32px rgba(0,0,0,.2)}
+  .hero-art>*{display:none}
+  .hero-art::after{content:"Imagen ilustrativa · Pexels";position:absolute;left:12px;bottom:12px;padding:7px 10px;border-radius:999px;background:rgba(14,43,27,.78);color:#fff;font-size:10px;letter-spacing:.2px}
+  .hero-actions{align-items:stretch;gap:10px}
+  .hero-actions .button{min-height:50px}
+  .text-link{min-height:44px;padding:8px 0}
+  .section-pad{padding-top:64px;padding-bottom:64px}
+  .service-card{padding:17px 15px 56px;min-height:205px}
+  .service-card>a{right:12px;bottom:10px}
+  .coverage-tags span{min-height:34px;align-items:center}
+  .footer-legal{padding-bottom:78px}
+  .mobile-cta{padding:9px 16px calc(9px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px rgba(18,47,32,.08)}
+  .mobile-cta .button{min-height:50px}
+}
+@media(max-width:380px){
+  .container{width:calc(100% - 32px)}
+  .service-grid{grid-template-columns:1fr;gap:12px}
+  .service-card{min-height:0;padding:17px 58px 17px 16px}
+  .service-card h3{margin-top:16px}
+  .service-card>a{right:12px;bottom:calc(50% - 20px)}
+  .hero h1{font-size:clamp(40px,11.5vw,46px);letter-spacing:-2.2px}
+  .hero-art{height:220px}
+}
+
+
+/* Mobile navigation: predictable, visible and comfortably tappable. */
+@media(max-width:680px){
+  .site-header{height:auto;min-height:0}
+  .header-inner{min-height:68px;display:grid;grid-template-columns:1fr;gap:0;padding-top:10px}
+  .brand{min-height:44px;width:max-content}
+  .mobile-nav{display:block;width:100%;min-width:0;padding:4px 0 9px;overflow:visible}
+  .mobile-nav ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;list-style:none;margin:0;padding:0}
+  .mobile-nav li{min-width:0;margin:0;padding:0}
+  .mobile-nav a{display:flex;align-items:center;justify-content:center;min-width:0;min-height:48px;padding:6px 4px;border:1px solid #dfe7d7;border-radius:8px;background:#f3f6ed;color:#36563b;font-size:12px;font-weight:700;line-height:1.2;text-align:center;white-space:normal;overflow-wrap:anywhere;touch-action:manipulation;transition:background-color .15s,border-color .15s}
+  .mobile-nav a:hover{background:#e9f0df;border-color:#c8d7b8}
+  .mobile-nav a:focus-visible{outline:3px solid #527a3e;outline-offset:2px;position:relative;z-index:1}
+}
+@media(max-width:360px){
+  .mobile-nav ul{gap:4px}
+  .mobile-nav a{font-size:11px;padding-inline:3px;min-height:48px}
+}
+
+/* Mobile hamburger navigation: compact header and explicit expanded state. */
+.mobile-menu-toggle{display:none}
+@media(max-width:680px){
+  .header-inner{grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:12px;padding-top:8px}
+  .brand{grid-column:1;grid-row:1}
+  .mobile-menu-toggle{grid-column:2;grid-row:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:48px;min-height:48px;padding:0 12px;border:1px solid #d5e0cb;border-radius:9px;background:#f3f6ed;color:#244f35;font:700 12px var(--font-body),sans-serif;cursor:pointer;touch-action:manipulation}
+  .mobile-menu-toggle:hover{background:#e9f0df}
+  .mobile-menu-toggle:focus-visible{outline:3px solid #527a3e;outline-offset:3px}
+  .mobile-nav{grid-column:1/-1;grid-row:2;width:100%;padding:8px 0 12px;border-top:1px solid #e5eadf}
+  .mobile-nav[hidden]{display:none}
+  .mobile-nav ul{display:grid;grid-template-columns:1fr;gap:5px;list-style:none;margin:0;padding:0}
+  .mobile-nav li{min-width:0;margin:0;padding:0}
+  .mobile-nav a{display:flex;align-items:center;min-height:48px;padding:10px 13px;border:1px solid #e1e8d9;border-radius:8px;background:#f7f8f2;color:#294b32;font-size:14px;font-weight:700;line-height:1.3;text-align:left;touch-action:manipulation}
+  .mobile-nav a:hover{background:#e9f0df;border-color:#c8d7b8}
+  .mobile-nav a:focus-visible{outline:3px solid #527a3e;outline-offset:2px}
+}
+
+/* Keep the footer shortcut on desktop; remove it on mobile. */
+@media(max-width:680px){.footer-back-to-top{display:none}}

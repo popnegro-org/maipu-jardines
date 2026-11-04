@@ -4,11 +4,13 @@ import { readFile } from 'node:fs/promises';
 
 const page = await readFile(new URL('../src/app/page.tsx', import.meta.url), 'utf8');
 const whatsapp = await readFile(new URL('../src/components/whatsapp-cta.tsx', import.meta.url), 'utf8');
+const mobileNav = await readFile(new URL('../src/components/mobile-nav.tsx', import.meta.url), 'utf8');
 const acceptance = await readFile(new URL('../docs/PMV_ACCEPTANCE.md', import.meta.url), 'utf8');
 const layout = await readFile(new URL('../src/app/layout.tsx', import.meta.url), 'utf8');
 const robots = await readFile(new URL('../src/app/robots.ts', import.meta.url), 'utf8');
 const sitemap = await readFile(new URL('../src/app/sitemap.ts', import.meta.url), 'utf8');
 const envExample = await readFile(new URL('../.env.example', import.meta.url), 'utf8');
+const styles = await readFile(new URL('../src/app/globals.css', import.meta.url), 'utf8');
 
 test('landing comunica servicio, ubicación y segmentos aprobados', () => {
   for (const phrase of ['Corte de pasto', 'Maipú', 'comercios y empresas', 'mantenimiento periódico']) {
@@ -44,4 +46,25 @@ test('las imágenes de Pexels se identifican como ilustrativas', () => {
 test('GA4 permanece fuera del alcance', () => {
   assert.match(acceptance, /GA4 fuera de alcance|GA4 excluido/);
   assert.doesNotMatch(layout, /gtag|googletagmanager/i);
+});
+
+
+test('mobile UX incluye menú hamburguesa accesible, CTA seguro y targets táctiles', () => {
+  assert.match(page, /<MobileNav \/>/);
+  assert.match(mobileNav, /aria-expanded={isOpen}/);
+  assert.match(mobileNav, /aria-controls="mobile-primary-navigation"/);
+  assert.match(mobileNav, /hidden={!isOpen}/);
+  assert.match(mobileNav, /event.key === 'Escape'/);
+  for (const href of ["#servicios", "#como-funciona", "#cobertura"]) assert.ok(mobileNav.includes(href));
+  assert.match(styles, /\.mobile-menu-toggle[^}]*min-width:48px;min-height:48px/);
+  assert.match(styles, /\.mobile-nav a\{display:flex;align-items:center;min-height:48px/);
+  assert.match(styles, /\.mobile-nav a:focus-visible/);
+  assert.match(styles, /\.mobile-cta \.button\{min-height:50px\}/);
+  assert.match(styles, /env\(safe-area-inset-bottom\)/);
+  assert.match(styles, /@media\(max-width:380px\)[\s\S]*?\.service-grid\{grid-template-columns:1fr;gap:12px\}/);
+});
+
+test('el enlace Volver arriba se conserva en desktop y se oculta en mobile', () => {
+  assert.ok(page.includes('footer-back-to-top'));
+  assert.match(styles, /@media\(max-width:680px\)\{\.footer-back-to-top\{display:none\}\}/);
 });
