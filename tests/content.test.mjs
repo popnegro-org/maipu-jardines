@@ -42,6 +42,6 @@ test('las imágenes de Pexels se identifican como ilustrativas', () => {
 });
 
 test('GA4 permanece fuera del alcance', () => {
-  assert.match(acceptance, /GA4 excluido/);
+  assert.match(acceptance, /GA4 fuera de alcance|GA4 excluido/);
   assert.doesNotMatch(layout, /gtag|googletagmanager/i);
 });
