@@ -86,10 +86,12 @@ export default function HomePage() {
             <a href="#cobertura">Cobertura</a>
           </nav>
           <WhatsAppCta className="header-cta" />
-          <nav className="mobile-nav" aria-label="Navegación móvil">
-            <a href="#servicios">Servicios</a>
-            <a href="#como-funciona">Cómo trabajamos</a>
-            <a href="#cobertura">Cobertura</a>
+          <nav className="mobile-nav" aria-label="Navegación principal móvil">
+            <ul>
+              <li><a href="#servicios">Servicios</a></li>
+              <li><a href="#como-funciona">Cómo trabajamos</a></li>
+              <li><a href="#cobertura">Cobertura</a></li>
+            </ul>
           </nav>
         </div>
       </header>
