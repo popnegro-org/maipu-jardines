@@ -51,3 +51,5 @@ Captar consultas calificadas para corte de pasto y mantenimiento de jardines en 
 
 ## Métrica principal
 Porcentaje de primeros trabajos que se convierten en planes de mantenimiento recurrente. Métricas secundarias: leads, leads calificados, presupuestos, trabajos contratados, tiempo de respuesta y costo de adquisición.
+
+- En mobile (hasta 680 px), el acceso secundario de pie "Volver arriba" permanece oculto para evitar duplicar la navegación y competir con el CTA fijo de WhatsApp; se conserva en desktop.
