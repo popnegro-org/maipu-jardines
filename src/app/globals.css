@@ -95,3 +95,6 @@
   .mobile-nav a:hover{background:#e9f0df;border-color:#c8d7b8}
   .mobile-nav a:focus-visible{outline:3px solid #527a3e;outline-offset:2px}
 }
+
+/* Keep the footer shortcut on desktop; remove it on mobile. */
+@media(max-width:680px){.footer-back-to-top{display:none}}
