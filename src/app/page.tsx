@@ -44,14 +44,27 @@ const steps = [
   ['Coordinamos la visita', 'Acordamos día, horario y responsable antes de realizar el servicio.'],
 ];
 
-const coverage = ['Maipú', 'Localidades cercanas', 'Consultar disponibilidad'];
+const coverage = [
+  'Ciudad de Maipú',
+  'Luzuriaga',
+  'Coquimbito',
+  'General Gutiérrez',
+  'Cruz de Piedra',
+  'Russell',
+  'Lunlunta',
+  'General Ortega',
+  'Rodeo del Medio',
+  'Fray Luis Beltrán',
+  'San Roque',
+  'Barrancas',
+];
 
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'Corte de pasto y mantenimiento de jardines',
   serviceType: ['Corte de césped', 'Mantenimiento de jardines', 'Limpieza de espacios verdes'],
-  areaServed: { '@type': 'AdministrativeArea', name: 'Maipú, Mendoza, Argentina y alrededores sujetos a confirmación' },
+  areaServed: coverage.map((name) => ({ '@type': 'Place', name: `${name}, Maipú, Mendoza, Argentina` })),
   description:
     'Servicio de corte de pasto y mantenimiento de jardines para clientes residenciales y comerciales en Maipú y localidades cercanas.',
   provider: { '@type': 'Organization', name: 'Maipú Jardines' },
@@ -118,6 +131,19 @@ export default function HomePage() {
           </div>
         </section>
 
+        <section className="photo-showcase section-pad" aria-label="Imágenes ilustrativas de corte de pasto y jardinería">
+          <div className="container photo-showcase-grid">
+            <figure className="photo-tile photo-tile-wide">
+              <div className="photo-image photo-image-mower" role="img" aria-label="Persona cortando el césped con una cortadora" />
+              <figcaption><b>Corte de césped</b><span>Imagen ilustrativa · Pexels</span></figcaption>
+            </figure>
+            <figure className="photo-tile">
+              <div className="photo-image photo-image-trimmer" role="img" aria-label="Trabajo de terminación de césped con bordeadora" />
+              <figcaption><b>Terminaciones y bordes</b><span>Imagen ilustrativa · Pexels</span></figcaption>
+            </figure>
+          </div>
+        </section>
+
         <section className="services section-pad" id="servicios">
           <div className="container">
             <div className="section-heading"><div><span className="eyebrow eyebrow-dark">QUÉ PODEMOS HACER</span><h2>Soluciones para<br /><em>tu espacio verde.</em></h2></div><p>Desde un corte puntual hasta un plan de mantenimiento con visitas programadas.</p></div>
@@ -149,7 +175,7 @@ export default function HomePage() {
         </section>
 
         <section className="coverage section-pad" id="cobertura">
-          <div className="container coverage-grid"><div><span className="eyebrow">CERCA TUYO</span><h2>Empezamos en <em>Maipú.</em></h2><p>Atendemos Maipú y localidades cercanas. Consultanos por tu zona y confirmamos disponibilidad.</p><WhatsAppCta /></div><div className="coverage-panel"><div className="coverage-map"><div className="map-grid" /><MapPin className="map-pin" size={38} fill="currentColor" /><span className="map-label">MAIPÚ</span><span className="map-ring ring-a" /><span className="map-ring ring-b" /></div><div className="coverage-tags">{coverage.map((place) => <span key={place}><MapPin size={13} /> {place}</span>)}</div><small>Otras localidades: consultar disponibilidad.</small></div></div>
+          <div className="container coverage-grid"><div><span className="eyebrow">CERCA TUYO</span><h2>Empezamos en <em>Maipú.</em></h2><p>Atendemos en Ciudad de Maipú, Luzuriaga, Coquimbito, General Gutiérrez, Cruz de Piedra, Russell, Lunlunta, General Ortega, Rodeo del Medio, Fray Luis Beltrán, San Roque y Barrancas.</p><WhatsAppCta /></div><div className="coverage-panel"><div className="coverage-map"><div className="map-grid" /><MapPin className="map-pin" size={38} fill="currentColor" /><span className="map-label">MAIPÚ</span><span className="map-ring ring-a" /><span className="map-ring ring-b" /></div><div className="coverage-tags">{coverage.map((place) => <span key={place}><MapPin size={13} /> {place}</span>)}</div><small>La coordinación y disponibilidad se confirma según el tipo de trabajo y agenda.</small></div></div>
         </section>
 
         <section className="audience section-pad"><div className="container audience-inner"><div><span className="eyebrow eyebrow-dark">PARA CADA NECESIDAD</span><h2>Tu casa o tu negocio.<br /><em>Estamos para ayudarte.</em></h2></div><div className="audience-cards"><article><Fence size={25} /><h3>Hogares</h3><p>Patios, jardines y espacios verdes particulares.</p></article><article><ShieldCheck size={25} /><h3>Comercios y empresas</h3><p>Mantenimiento coordinado para espacios de trabajo.</p></article></div></div></section>
