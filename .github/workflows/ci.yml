@@ -1,0 +1,24 @@
+name: CI
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main, 'feature/**']
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Pin npm to lockfile-compatible version
+        run: npm install --global npm@10.9.9
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
