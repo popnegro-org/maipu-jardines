@@ -5,7 +5,7 @@ const message = encodeURIComponent(
 );
 
 export function WhatsAppCta({ className = '' }: { className?: string }) {
-  const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(/\D/g, '');
+  const number = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5492612456584').replace(/\D/g, '');
   const href = number ? `https://wa.me/${number}?text=${message}` : '#contacto';
 
   return (
