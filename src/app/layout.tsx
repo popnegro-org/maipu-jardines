@@ -4,7 +4,7 @@ import './globals.css';
 
 const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-body', display: 'swap' });
 const manrope = Manrope({ subsets: ['latin'], variable: '--font-heading', display: 'swap' });
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '');
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://maipu-jardines.vercel.app').replace(/\/$/, '');
 
 export const metadata: Metadata = {
   ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
