@@ -13,6 +13,7 @@ import {
   Trees,
 } from 'lucide-react';
 import { WhatsAppCta } from '@/components/whatsapp-cta';
+import { MobileNav } from '@/components/mobile-nav';
 
 const services = [
   {
@@ -86,13 +87,7 @@ export default function HomePage() {
             <a href="#cobertura">Cobertura</a>
           </nav>
           <WhatsAppCta className="header-cta" />
-          <nav className="mobile-nav" aria-label="Navegación principal móvil">
-            <ul>
-              <li><a href="#servicios">Servicios</a></li>
-              <li><a href="#como-funciona">Cómo trabajamos</a></li>
-              <li><a href="#cobertura">Cobertura</a></li>
-            </ul>
-          </nav>
+          <MobileNav />
         </div>
       </header>
 
