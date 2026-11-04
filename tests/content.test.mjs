@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 
 const page = await readFile(new URL('../src/app/page.tsx', import.meta.url), 'utf8');
 const whatsapp = await readFile(new URL('../src/components/whatsapp-cta.tsx', import.meta.url), 'utf8');
+const mobileNav = await readFile(new URL('../src/components/mobile-nav.tsx', import.meta.url), 'utf8');
 const acceptance = await readFile(new URL('../docs/PMV_ACCEPTANCE.md', import.meta.url), 'utf8');
 const layout = await readFile(new URL('../src/app/layout.tsx', import.meta.url), 'utf8');
 const robots = await readFile(new URL('../src/app/robots.ts', import.meta.url), 'utf8');
@@ -48,12 +49,15 @@ test('GA4 permanece fuera del alcance', () => {
 });
 
 
-test('mobile UX incluye navegación accesible, CTA seguro y targets táctiles', () => {
-  assert.match(page, /className="mobile-nav"/);
-  assert.match(page, /aria-label="Navegación principal móvil"/);
-  assert.match(page, /<ul>[\s\S]*href="#servicios"[\s\S]*href="#como-funciona"[\s\S]*href="#cobertura"/);
-  assert.match(styles, /\.mobile-nav ul\{display:grid;grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
-  assert.match(styles, /\.mobile-nav a\{[^}]*min-height:48px/);
+test('mobile UX incluye menú hamburguesa accesible, CTA seguro y targets táctiles', () => {
+  assert.match(page, /<MobileNav \/>/);
+  assert.match(mobileNav, /aria-expanded={isOpen}/);
+  assert.match(mobileNav, /aria-controls="mobile-primary-navigation"/);
+  assert.match(mobileNav, /hidden={!isOpen}/);
+  assert.match(mobileNav, /event.key === 'Escape'/);
+  for (const href of ["#servicios", "#como-funciona", "#cobertura"]) assert.ok(mobileNav.includes(href));
+  assert.match(styles, /\.mobile-menu-toggle[^}]*min-width:48px;min-height:48px/);
+  assert.match(styles, /\.mobile-nav a\{display:flex;align-items:center;min-height:48px/);
   assert.match(styles, /\.mobile-nav a:focus-visible/);
   assert.match(styles, /\.mobile-cta \.button\{min-height:50px\}/);
   assert.match(styles, /env\(safe-area-inset-bottom\)/);
