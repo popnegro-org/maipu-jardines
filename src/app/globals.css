@@ -5,3 +5,22 @@
 /* Keep the fixed conversion bar exclusive to narrow screens. */
 .mobile-cta{display:none!important}
 @media(max-width:680px){.mobile-cta{display:block!important}}
+
+/* Pexels imagery: illustrative stock photography, never presented as client work. */
+.hero-art{height:410px;position:relative;isolation:isolate;border-radius:18px;overflow:hidden;background:linear-gradient(180deg,rgba(13,42,25,.05),rgba(13,42,25,.65)),url('https://images.pexels.com/photos/12087398/pexels-photo-12087398.jpeg?auto=compress&cs=tinysrgb&w=1400') center 42%/cover;box-shadow:0 28px 55px rgba(0,0,0,.22)}
+.photo-credit{position:absolute;top:16px;right:17px;padding:7px 10px;border-radius:30px;background:rgba(14,43,27,.72);font-size:9px;letter-spacing:.5px;color:#fff}
+.photo-caption{position:absolute;left:20px;right:20px;bottom:20px;display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid rgba(255,255,255,.25);border-radius:10px;background:rgba(15,47,29,.78);backdrop-filter:blur(8px);color:#fff}
+.photo-caption b,.photo-caption small{display:block}.photo-caption b{font-size:13px}.photo-caption small{margin-top:3px;font-size:10px;color:#d6e2d3}
+.photo-showcase{padding-top:0;background:var(--paper)}
+.photo-showcase-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:16px}
+.photo-tile{position:relative;min-width:0;height:265px;margin:0;overflow:hidden;border-radius:10px;background:#e4eadc}
+.photo-image{position:absolute;inset:0;background-position:center;background-size:cover;transition:transform .4s}
+.photo-tile:hover .photo-image{transform:scale(1.035)}
+.photo-image-mower{background-image:linear-gradient(0deg,rgba(14,43,27,.72),transparent 65%),url('https://images.pexels.com/photos/9029162/pexels-photo-9029162.jpeg?auto=compress&cs=tinysrgb&w=1200')}
+.photo-image-trimmer{background-image:linear-gradient(0deg,rgba(14,43,27,.72),transparent 65%),url('https://images.pexels.com/photos/16265609/pexels-photo-16265609/free-photo-of-man-mowing-the-lawn-with-a-grass-trimmer.jpeg?auto=compress&cs=tinysrgb&w=1000')}
+.photo-tile figcaption{position:absolute;left:17px;right:17px;bottom:15px;color:#fff}
+.photo-tile figcaption b,.photo-tile figcaption span{display:block}
+.photo-tile figcaption b{font:700 15px var(--font-heading)}
+.photo-tile figcaption span{margin-top:4px;font-size:9px;color:#e0e9dd}
+@media(max-width:900px){.hero-art{height:360px}}
+@media(max-width:680px){.hero-art{height:280px;margin:0;border-radius:13px}.photo-showcase-grid{grid-template-columns:1fr;gap:10px}.photo-tile{height:220px}.photo-tile-wide{height:230px}}
