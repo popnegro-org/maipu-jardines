@@ -41,7 +41,10 @@ Captar consultas calificadas para corte de pasto y mantenimiento de jardines en 
 - `npm run typecheck` sin errores.
 - `npm test` aprobado.
 - `npm run build` aprobado.
-- Landing sin overflow horizontal en 360 px, 390 px, 768 px y escritorio.
+- Landing sin overflow horizontal en 360 px, 390 px, 430 px, 680 px, 681 px, 768 px y escritorio.
+- En móvil hay navegación directa a Servicios, Cómo trabajamos y Cobertura, CTA fijo con safe-area y controles táctiles de al menos 44–50 px.
+- En anchos de hasta 380 px, las tarjetas de servicios pasan a una columna para preservar legibilidad.
+- La fotografía principal en móvil elimina elementos decorativos superpuestos y conserva la identificación de imagen ilustrativa.
 - CTA visible y accesible; usa el número confirmado `5492612456584` y un mensaje inicial editable con localidad.
 - Canonical y sitemap usan exclusivamente el dominio configurado; si falta, se omiten para evitar indexar un dominio candidato.
 - No hay datos de negocio, reseñas, fotos o afirmaciones inventadas.
