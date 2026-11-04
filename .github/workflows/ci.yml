@@ -15,6 +15,8 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      - name: Pin npm to lockfile-compatible version
+        run: npm install --global npm@10.9.9
       - run: npm ci
       - run: npm run lint
       - run: npm run typecheck
