@@ -50,8 +50,11 @@ test('GA4 permanece fuera del alcance', () => {
 
 test('mobile UX incluye navegación accesible, CTA seguro y targets táctiles', () => {
   assert.match(page, /className="mobile-nav"/);
-  assert.match(page, /aria-label="Navegación móvil"/);
-  assert.match(styles, /\.mobile-nav a\{[^}]*min-height:36px/);
+  assert.match(page, /aria-label="Navegación principal móvil"/);
+  assert.match(page, /<ul>[\\s\\S]*href="#servicios"[\\s\\S]*href="#como-funciona"[\\s\\S]*href="#cobertura"/);
+  assert.match(styles, /\.mobile-nav ul\{display:grid;grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
+  assert.match(styles, /\.mobile-nav a\{[^}]*min-height:48px/);
+  assert.match(styles, /\.mobile-nav a:focus-visible/);
   assert.match(styles, /\.mobile-cta \.button\{min-height:50px\}/);
   assert.match(styles, /env\(safe-area-inset-bottom\)/);
   assert.match(styles, /@media\(max-width:380px\)[\s\S]*?\.service-grid\{grid-template-columns:1fr;gap:12px\}/);
